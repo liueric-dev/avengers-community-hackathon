@@ -69,7 +69,7 @@
 <body>
 
     <header>
-        <h2 style="border:none; margin:0; padding:0;">🎓 Help Desk Hub</h2>
+        <h2 style="border:none; margin:0; padding:0;">🎓 Signal Wall: Pursuit Help Desk</h2>
         <div class="user-controls">
             <span>Viewing as: </span>
             <select id="userDropdown" onchange="switchUser()">
@@ -128,15 +128,15 @@
     <script>
         // --- DATA STATE ---
         let users = [
-            { id: 1, name: "Alex", points: 45, isAvailable: true, role: "Master Mentor" },
-            { id: 2, name: "Leo", points: 12, isAvailable: false, role: "Helper" },
-            { id: 3, name: "Sarah", points: 8, isAvailable: false, role: "Rookie" }
+            { id: 1, name: "Afiya", points: 45, isAvailable: true, role: "Master Mentor" },
+            { id: 2, name: "Dave", points: 12, isAvailable: false, role: "Helper" },
+            { id: 3, name: "Victoria", points: 8, isAvailable: false, role: "Rookie" }
         ];
 
         let questions = [
-            { id: 101, author: "Leo", text: "How do I center a div in CSS?", upvotes: 4, date: "10/24/2023", time: "10:15 AM", tags: ["CSS", "HTML", "Urgent"] },
-            { id: 102, author: "Sarah", text: "Difference between mitosis and meiosis?", upvotes: 2, date: "10/24/2023", time: "09:30 AM", tags: ["Biology", "Science"] },
-            { id: 103, author: "Jamie", text: "What is the formula for quadratic equations?", upvotes: 7, date: "10/24/2023", time: "11:00 AM", tags: ["Math", "Algebra"] }
+            { id: 101, author: "Eric", text: "How do I center a div in CSS?", upvotes: 4, date: "10/24/2023", time: "10:15 AM", tags: ["CSS", "HTML", "Urgent"] },
+            { id: 102, author: "Jill", text: "Difference between mitosis and meiosis?", upvotes: 2, date: "10/24/2023", time: "09:30 AM", tags: ["Biology", "Science"] },
+            { id: 103, author: "Sarah", text: "What is the formula for quadratic equations?", upvotes: 7, date: "10/24/2023", time: "11:00 AM", tags: ["Math", "Algebra"] }
         ];
 
         let currentUser = users[0];
@@ -297,4 +297,4 @@
         init();
     </script>
 </body>
-</html>
+</html>git
