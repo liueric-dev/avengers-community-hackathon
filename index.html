@@ -11,6 +11,7 @@
             --card: #FFFFFF;
             --text: #1F2937;
             --success: #10B981;
+            --border: #E5E7EB;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,85 +21,55 @@
             padding: 20px;
         }
         header {
-            background: var(--primary);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto 20px auto;
+            background: var(--primary); color: white; padding: 15px 20px;
+            border-radius: 8px; display: flex; justify-content: space-between;
+            align-items: center; max-width: 1000px; margin: 0 auto 20px auto;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .user-controls select {
-            padding: 8px;
-            border-radius: 4px;
-            border: none;
-            margin-right: 10px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
-        .card {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-        h2 { margin-top: 0; border-bottom: 2px solid var(--bg); padding-bottom: 10px; }
+        .user-controls select { padding: 8px; border-radius: 4px; border: none; margin-right: 10px; }
+        .container { max-width: 1000px; margin: auto; display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+        .card { background: var(--card); padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        h2 { margin-top: 0; border-bottom: 2px solid var(--bg); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center;}
         
         /* Status Toggle */
-        .status-toggle {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-        }
-        .switch {
-            position: relative; display: inline-block; width: 50px; height: 24px;
-        }
+        .status-toggle { display: flex; align-items: center; gap: 10px; font-weight: bold; }
+        .switch { position: relative; display: inline-block; width: 50px; height: 24px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider {
-            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #ccc; transition: .4s; border-radius: 24px;
-        }
-        .slider:before {
-            position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px;
-            background-color: white; transition: .4s; border-radius: 50%;
-        }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
         input:checked + .slider { background-color: var(--success); }
         input:checked + .slider:before { transform: translateX(26px); }
 
+        /* Form Styles */
+        .question-form { background: #F9FAFB; padding: 15px; border-radius: 6px; border: 1px solid var(--border); margin-bottom: 20px; }
+        .form-row { display: flex; gap: 10px; margin-bottom: 10px; }
+        .form-row input[type="text"] { flex: 1; padding: 8px; border: 1px solid var(--border); border-radius: 4px; background: #E5E7EB; color: #6B7280;}
+        .form-row input[type="text"].editable { background: white; color: var(--text); }
+        textarea { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 4px; resize: vertical; min-height: 60px; margin-bottom: 10px; box-sizing: border-box; font-family: inherit;}
+        .btn-submit { background: var(--success); color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; }
+        .btn-submit:hover { background: #059669; }
+
         /* Lists */
-        .list-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px;
-            background: var(--bg);
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-        .btn {
-            background: var(--primary); color: white; border: none; padding: 6px 12px;
-            border-radius: 4px; cursor: pointer; transition: 0.2s;
-        }
+        .list-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 15px; background: white; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 10px; }
+        .list-item-content { display: flex; gap: 15px; flex: 1; }
+        .question-details { display: flex; flex-direction: column; gap: 5px; }
+        .meta-text { font-size: 0.8em; color: #6B7280; }
+        
+        .btn { background: var(--primary); color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; transition: 0.2s; white-space: nowrap; }
         .btn:hover { background: #4338CA; }
-        .btn-upvote { background: #E5E7EB; color: #374151; font-weight: bold; }
+        .btn-upvote { background: #E5E7EB; color: #374151; font-weight: bold; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; height: fit-content;}
         .btn-upvote:hover { background: #D1D5DB; }
-        .badge { background: #FDE68A; color: #92400E; padding: 2px 8px; border-radius: 12px; font-size: 0.8em;}
+        
+        /* Tags */
+        .tag-container { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 4px;}
+        .tag { background: #DBEAFE; color: #1E40AF; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: bold;}
+        .role-badge { background: #FDE68A; color: #92400E; padding: 2px 8px; border-radius: 12px; font-size: 0.8em;}
     </style>
 </head>
 <body>
 
     <header>
-        <h2>🎓 Help Desk Hub</h2>
+        <h2 style="border:none; margin:0; padding:0;">🎓 Help Desk Hub</h2>
         <div class="user-controls">
             <span>Viewing as: </span>
             <select id="userDropdown" onchange="switchUser()">
@@ -122,6 +93,18 @@
 
             <div class="card">
                 <h2>Top Questions 🔥</h2>
+                
+                <div class="question-form">
+                    <div class="form-row">
+                        <input type="text" id="formName" readonly title="Auto-filled based on login">
+                        <input type="text" id="formDate" readonly title="Auto-filled current date">
+                        <input type="text" id="formTime" readonly title="Auto-filled current time">
+                    </div>
+                    <textarea id="formText" placeholder="Describe what you need help with..."></textarea>
+                    <input type="text" id="formTags" class="editable" style="width: 100%; box-sizing: border-box; margin-bottom: 10px; padding: 8px; border: 1px solid var(--border); border-radius: 4px;" placeholder="Add tags (e.g. CSS, urgent, biology) - separate with commas">
+                    <button class="btn-submit" onclick="submitQuestion()">+ Post Question</button>
+                </div>
+
                 <div id="questionsList">
                     </div>
             </div>
@@ -143,7 +126,7 @@
     </div>
 
     <script>
-        // --- DATA STATE (Dummy Database) ---
+        // --- DATA STATE ---
         let users = [
             { id: 1, name: "Alex", points: 45, isAvailable: true, role: "Master Mentor" },
             { id: 2, name: "Leo", points: 12, isAvailable: false, role: "Helper" },
@@ -151,17 +134,16 @@
         ];
 
         let questions = [
-            { id: 101, author: "Leo", text: "How do I center a div in CSS?", upvotes: 4 },
-            { id: 102, author: "Sarah", text: "Difference between mitosis and meiosis?", upvotes: 2 },
-            { id: 103, author: "Jamie", text: "What is the formula for quadratic equations?", upvotes: 7 }
+            { id: 101, author: "Leo", text: "How do I center a div in CSS?", upvotes: 4, date: "10/24/2023", time: "10:15 AM", tags: ["CSS", "HTML", "Urgent"] },
+            { id: 102, author: "Sarah", text: "Difference between mitosis and meiosis?", upvotes: 2, date: "10/24/2023", time: "09:30 AM", tags: ["Biology", "Science"] },
+            { id: 103, author: "Jamie", text: "What is the formula for quadratic equations?", upvotes: 7, date: "10/24/2023", time: "11:00 AM", tags: ["Math", "Algebra"] }
         ];
 
-        let currentUser = users[0]; // Default logged in user
+        let currentUser = users[0];
 
-        // --- UI UPDATING FUNCTIONS ---
+        // --- CORE FUNCTIONS ---
 
         function init() {
-            // Populate Dropdown
             const dropdown = document.getElementById('userDropdown');
             users.forEach(u => {
                 let option = document.createElement('option');
@@ -169,6 +151,9 @@
                 option.textContent = u.name;
                 dropdown.appendChild(option);
             });
+            updateFormTimestamps();
+            // Update time every minute to keep it fresh
+            setInterval(updateFormTimestamps, 60000); 
             render();
         }
 
@@ -186,48 +171,95 @@
         function upvote(questionId) {
             let q = questions.find(q => q.id === questionId);
             if (q) q.upvotes += 1;
-            render(); // Re-render to sort and show new votes
+            render();
         }
 
         function grabQuestion(questionId) {
             alert(currentUser.name + " is now mentoring on this question!");
-            // In a real app, this would assign the question and move it to an active session
         }
 
         function requestMentor(mentorName) {
             alert("Sent a help request to " + mentorName + "!");
         }
 
-        function render() {
-            // 1. Update Header
-            document.getElementById('userPoints').textContent = `Points: ${currentUser.points} | Rank: ${currentUser.role}`;
+        // --- NEW FORM LOGIC ---
 
-            // 2. Update Status Toggle
+        function updateFormTimestamps() {
+            const now = new Date();
+            document.getElementById('formDate').value = now.toLocaleDateString();
+            document.getElementById('formTime').value = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }
+
+        function submitQuestion() {
+            const textInput = document.getElementById('formText').value.trim();
+            const tagsInput = document.getElementById('formTags').value.trim();
+            
+            if (!textInput) {
+                alert("Please enter a question before posting.");
+                return;
+            }
+
+            // Convert comma-separated string into an array of clean tags
+            const tagsArray = tagsInput ? tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag !== "") : [];
+
+            const newQuestion = {
+                id: Date.now(),
+                author: currentUser.name,
+                text: textInput,
+                upvotes: 0,
+                date: document.getElementById('formDate').value,
+                time: document.getElementById('formTime').value,
+                tags: tagsArray
+            };
+
+            questions.push(newQuestion);
+            
+            // Clear form
+            document.getElementById('formText').value = '';
+            document.getElementById('formTags').value = '';
+            
+            render();
+        }
+
+        // --- RENDER UI ---
+
+        function render() {
+            // Update Header & Form User Name
+            document.getElementById('userPoints').textContent = `Points: ${currentUser.points} | Rank: ${currentUser.role}`;
+            document.getElementById('formName').value = `Asker: ${currentUser.name}`;
+
+            // Update Status Toggle
             const statusCheckbox = document.getElementById('statusCheckbox');
             const statusText = document.getElementById('statusText');
             statusCheckbox.checked = currentUser.isAvailable;
             statusText.textContent = currentUser.isAvailable ? "(Available to Help!)" : "(Currently Working)";
             statusText.style.color = currentUser.isAvailable ? "var(--success)" : "gray";
 
-            // 3. Render Questions (Sorted by upvotes)
+            // Render Questions
             const qList = document.getElementById('questionsList');
             qList.innerHTML = '';
             let sortedQuestions = [...questions].sort((a, b) => b.upvotes - a.upvotes);
             
             sortedQuestions.forEach(q => {
+                // Generate HTML for tags
+                let tagsHTML = q.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
                 qList.innerHTML += `
                     <div class="list-item">
-                        <div>
-                            <button class="btn-upvote" onclick="upvote(${q.id})">▲ ${q.upvotes}</button>
-                            <span style="margin-left: 10px;"><strong>${q.text}</strong></span>
-                            <div style="font-size: 0.8em; color: gray; margin-left: 55px;">Asked by: ${q.author}</div>
+                        <div class="list-item-content">
+                            <button class="btn-upvote" onclick="upvote(${q.id})">▲<br>${q.upvotes}</button>
+                            <div class="question-details">
+                                <strong style="font-size: 1.1em;">${q.text}</strong>
+                                <div class="meta-text">Asked by: <strong>${q.author}</strong> on ${q.date} at ${q.time}</div>
+                                <div class="tag-container">${tagsHTML}</div>
+                            </div>
                         </div>
                         ${currentUser.isAvailable ? `<button class="btn" onclick="grabQuestion(${q.id})">Grab / Help</button>` : ''}
                     </div>
                 `;
             });
 
-            // 4. Render Available Mentors (Excluding current user)
+            // Render Mentors
             const mList = document.getElementById('mentorsList');
             mList.innerHTML = '';
             let availableMentors = users.filter(u => u.isAvailable && u.id !== currentUser.id);
@@ -237,7 +269,7 @@
             } else {
                 availableMentors.forEach(m => {
                     mList.innerHTML += `
-                        <div class="list-item">
+                        <div class="list-item" style="padding: 10px;">
                             <span>🟢 ${m.name}</span>
                             <button class="btn" onclick="requestMentor('${m.name}')">Request</button>
                         </div>
@@ -245,7 +277,7 @@
                 });
             }
 
-            // 5. Render Leaderboard
+            // Render Leaderboard
             const lList = document.getElementById('leaderboardList');
             lList.innerHTML = '';
             let sortedUsers = [...users].sort((a, b) => b.points - a.points);
@@ -254,15 +286,14 @@
                 let medals = ['🥇', '🥈', '🥉'];
                 let medal = index < 3 ? medals[index] : '';
                 lList.innerHTML += `
-                    <div class="list-item" style="${u.id === currentUser.id ? 'background: #EEF2FF; border: 1px solid var(--primary);' : ''}">
-                        <span>${medal} ${u.name} <span class="badge">${u.role}</span></span>
+                    <div class="list-item" style="padding: 10px; ${u.id === currentUser.id ? 'background: #EEF2FF; border-color: var(--primary);' : ''}">
+                        <span>${medal} ${u.name} <span class="role-badge">${u.role}</span></span>
                         <strong>${u.points} pts</strong>
                     </div>
                 `;
             });
         }
 
-        // Run on load
         init();
     </script>
 </body>
